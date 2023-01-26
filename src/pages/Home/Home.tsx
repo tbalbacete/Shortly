@@ -1,28 +1,35 @@
+// import { FormControl } from "@mui/material";
 import * as React from "react";
-import Button from "@mui/material/Button";
+import { StyledButton, StyledTextField } from "./Home.styles";
 
 export const Home: React.FC = () => {
-    const [shortUrl, setShortUrl] = React.useState("test")
-    async function postData(url = "https://gotiny.cc/api	") {
-        const response = await fetch(url, {
+    const [shortUrl, setShortUrl] = React.useState("")
+    const [isLoading, setIsloading] = React.useState(false);
+    async function postData(url: string) {
+        const response = await fetch("https://gotiny.cc/api", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({input: "https://www.youtube.com"})
+            body: JSON.stringify({input: `${url}`})
 
         });
         return response.json();
     }
 
-    const retrieveData =  () => {
-        return postData().then((data) => setShortUrl(`gotiny.cc/${data[0].code}`))
-    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleSubmit =  (event: any) => {
+        event.preventDefault();
+        setIsloading(true);
+        return postData(event.target.linkSubmit.value).then(function(data) { setIsloading(false); setShortUrl(`gotiny.cc/${data[0].code}`)})
+    };
 
-    postData().then((data) => {console.log(data)})
     return (
     <div>
-        <h1>Home</h1>
-        <p>{shortUrl}</p>
-        <Button variant="outlined" onClick={() => retrieveData()}>Submit</Button>
+        <h1>Short-ly</h1>
+        <form onSubmit={handleSubmit}>
+        <StyledTextField id="linkSubmit" label={"Enter link"} maxRows={1} size="small" variant="filled"></StyledTextField>
+        <StyledButton variant="outlined" type="submit">Submit</StyledButton>
+        </form>
+        <p>{isLoading ? "Loading..." : shortUrl}</p>
     </div>
     )
 }
