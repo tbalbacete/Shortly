@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import './App.css'
 import * as React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Home } from './pages/Home';
