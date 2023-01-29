@@ -7,6 +7,8 @@ import {
   StyledImage,
   StyledTextField,
 } from "./Home.styles";
+import Images from "../../assets/images"; 
+
 
 export const Home: React.FC = () => {
   const [shortUrl, setShortUrl] = React.useState("");
@@ -25,7 +27,7 @@ export const Home: React.FC = () => {
   return (
     <div>
       <StyledDiv>
-        <StyledImage src="\src\assets\letter-s.png" alt="S-Logo" />
+        <StyledImage src={Images[0]} alt="S-Logo" />
         <h1>Short-ly</h1>
         <form onSubmit={handleSubmit}>
           <StyledTextField
