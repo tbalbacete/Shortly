@@ -25,3 +25,7 @@ export const StyledButton = styled(Button)({
     borderLeft: "0px",
     borderRadius: "0px 15px 15px 0px"
 })
+
+export const StyledLinkContainer = styled("div")({
+    marginLeft: "30px",
+})

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { SnackbarProvider } from "notistack";
 import * as React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Home } from './pages/Home';
@@ -29,8 +30,10 @@ const errorHandler = (error: Error, info: { componentStack: string }) => {
 
 export const App: React.FC = () => {
   return (
-    <ErrorBoundary FallbackComponent={UnhandledError}  onError={errorHandler}>
-      <Home />
-      </ErrorBoundary>
-  )
+    <ErrorBoundary FallbackComponent={UnhandledError} onError={errorHandler}>
+      <SnackbarProvider>
+        <Home />
+      </SnackbarProvider>
+    </ErrorBoundary>
+  );
 };

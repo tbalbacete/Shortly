@@ -1,18 +1,16 @@
 import * as React from "react";
 import { postLinkData } from "../../utils";
 import { Footer } from "./Footer";
-import {
-  StyledButton,
-  StyledDiv,
-  StyledImage,
-  StyledTextField,
-} from "./Home.styles";
-import Images from "../../assets/images"; 
-
+import { StyledButton, StyledDiv, StyledImage, StyledLinkContainer, StyledTextField } from "./Home.styles";
+import Images from "../../assets/images";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Button } from "@mui/material";
+import { useSnackbar } from "notistack";
 
 export const Home: React.FC = () => {
   const [shortUrl, setShortUrl] = React.useState("");
   const [isLoading, setIsloading] = React.useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (event: any) => {
@@ -41,7 +39,25 @@ export const Home: React.FC = () => {
             Submit
           </StyledButton>
         </form>
-        <p>{isLoading ? "Loading..." : shortUrl}</p>
+        <StyledLinkContainer>
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            shortUrl && (
+              <p>
+                {shortUrl}{" "}
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(shortUrl);
+                    enqueueSnackbar("Link copied successfully!");
+                  }}
+                >
+                  <ContentCopyIcon />
+                </Button>
+              </p>
+            )
+          )}
+        </StyledLinkContainer>
       </StyledDiv>
       <Footer />
     </div>
