@@ -3,6 +3,7 @@ import { Button, TextField } from "@mui/material";
 
 export const StyledDiv = styled("div")({
     "@media (max-width: 512px)": {
+        top: "25%",
         left: "0%"
     },
     position: "fixed",
