@@ -1,7 +1,15 @@
 import * as React from "react";
 import { postLinkData } from "../../utils";
 import { Footer } from "./Footer";
-import { StyledButton, StyledDiv, StyledForm, StyledImage, StyledLinkContainer, StyledTextField } from "./Home.styles";
+import {
+  StyledButton,
+  StyledDescription,
+  StyledDiv,
+  StyledForm,
+  StyledImage,
+  StyledLinkContainer,
+  StyledTextField,
+} from "./Home.styles";
 import Images from "../../assets/images";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Button } from "@mui/material";
@@ -42,22 +50,28 @@ export const Home: React.FC = () => {
         <StyledLinkContainer>
           {isLoading ? (
             <p>Loading...</p>
+          ) : shortUrl ? (
+            <p>
+              {shortUrl}
+              <Button
+                sx={{ paddingBottom: "0", paddingTop: "0" }}
+                onClick={() => {
+                  navigator.clipboard.writeText(shortUrl);
+                  enqueueSnackbar("Link copied successfully!");
+                }}
+              >
+                <ContentCopyIcon />
+              </Button>
+            </p>
           ) : (
-            shortUrl && (
-              <p>
-                {shortUrl}{" "}
-                <Button
-                  onClick={() => {
-                    navigator.clipboard.writeText(shortUrl);
-                    enqueueSnackbar("Link copied successfully!");
-                  }}
-                >
-                  <ContentCopyIcon />
-                </Button>
-              </p>
-            )
+            <p>&nbsp;</p>
           )}
         </StyledLinkContainer>
+        <br />
+        <br />
+        <StyledDescription>
+          Short-ly is a lightweight, easy to use link shortener. Try it out and start making easily sharable links!
+        </StyledDescription>
       </StyledDiv>
       <Footer />
     </div>

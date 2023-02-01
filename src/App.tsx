@@ -2,11 +2,11 @@
 import { SnackbarProvider } from "notistack";
 import * as React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { Home } from './pages/Home';
+import { Home } from "./pages/Home";
 
 interface FallbackProps {
-  error: Error
-  resetErrorBoundary: (...args: Array<unknown>) => void
+  error: Error;
+  resetErrorBoundary: (...args: Array<unknown>) => void;
 }
 
 const UnhandledError: React.FC<FallbackProps> = ({ error, resetErrorBoundary }) => {

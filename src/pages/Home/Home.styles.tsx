@@ -16,7 +16,7 @@ export const StyledImage = styled("img")({
 });
 
 export const StyledTextField = styled(TextField)({
-  marginLeft: "30px",
+  marginLeft: "15x",
   background: "white",
 });
 
@@ -31,5 +31,10 @@ export const StyledLinkContainer = styled("div")({
 });
 
 export const StyledForm = styled("form")({
-    display: "flex",
-})
+  display: "flex",
+});
+
+export const StyledDescription = styled("h4")({
+  display: "flex",
+  textAlign: "center",
+});
