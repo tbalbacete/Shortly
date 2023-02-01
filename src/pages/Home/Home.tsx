@@ -1,7 +1,7 @@
 import * as React from "react";
 import { postLinkData } from "../../utils";
 import { Footer } from "./Footer";
-import { StyledButton, StyledDiv, StyledImage, StyledLinkContainer, StyledTextField } from "./Home.styles";
+import { StyledButton, StyledDiv, StyledForm, StyledImage, StyledLinkContainer, StyledTextField } from "./Home.styles";
 import Images from "../../assets/images";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Button } from "@mui/material";
@@ -25,10 +25,9 @@ export const Home: React.FC = () => {
   return (
     <div>
       <StyledDiv>
-        <div><StyledImage src={Images[0]} alt="S-Logo" />
-</div>
+        <StyledImage src={Images[0]} alt="S-Logo" />
         <h1>Short-ly</h1>
-        <form onSubmit={handleSubmit}>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledTextField
             id="linkSubmit"
             label={"Enter link to shorten..."}
@@ -39,7 +38,7 @@ export const Home: React.FC = () => {
           <StyledButton variant="outlined" type="submit">
             Submit
           </StyledButton>
-        </form>
+        </StyledForm>
         <StyledLinkContainer>
           {isLoading ? (
             <p>Loading...</p>

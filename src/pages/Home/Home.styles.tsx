@@ -29,3 +29,7 @@ export const StyledButton = styled(Button)({
 export const StyledLinkContainer = styled("div")({
   marginLeft: "30px",
 });
+
+export const StyledForm = styled("form")({
+    display: "flex",
+})
