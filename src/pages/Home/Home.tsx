@@ -70,7 +70,7 @@ export const Home: React.FC = () => {
         <br />
         <br />
         <StyledDescription>
-          Short-ly is a lightweight, easy to use link shortener. Try it out and start making easily sharable links!
+          Short-ly is a lightweight, easy to use link shortener. Try it out and start making easily shareable links!
         </StyledDescription>
       </StyledDiv>
       <Footer />
