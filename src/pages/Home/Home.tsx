@@ -25,7 +25,8 @@ export const Home: React.FC = () => {
   return (
     <div>
       <StyledDiv>
-        <StyledImage src={Images[0]} alt="S-Logo" />
+        <div><StyledImage src={Images[0]} alt="S-Logo" />
+</div>
         <h1>Short-ly</h1>
         <form onSubmit={handleSubmit}>
           <StyledTextField

@@ -6,9 +6,8 @@ export const Footer: React.FC = () => {
     return (
         <StyledFooter>
             <span>
-            Copyright 2022 - Tony Albacete |
+            Copyright 2022 - Tony Albacete | Built with: Vite, React/TS, ESlint, MUI, GoTiny API
             </span>
-            <span> Built with: Vite, React/TS, ESlint, MUI, GoTiny API</span>
         </StyledFooter>
     )
 };

@@ -6,10 +6,17 @@ export const StyledDiv = styled("div")({
         top: "25%",
         left: "0%"
     },
-    position: "fixed",
-    top: "30%",
-    left: "41%",
-    textAlign: "center",
+    // display: "flex",
+    // justifyContent: "center",
+    // alignItems: "center",
+    // flexDirection: "column",
+    display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  margin: "0",
+  minWidth: "320px",
+  minHeight: "100vh",
 })
 
 export const StyledImage = styled("img")({
